@@ -49,10 +49,10 @@ def sort_smtp(file_name):
 
 def sending_email(email_address, email_password, host_server, host_port, letter, to_email, name, _subject):
     msg = EmailMessage()
-    msg['Subject'] = _subject
-    msg['From'] =f'{name} <{email_address}>'
-    msg['To'] = to_email
-    msg['Reply-To'] = f'{reply_to} <{reply_to}>'
+    msg['Subject'] = _subject.strip()
+    msg['From'] = f'{name.strip()} <{email_address.strip()}>'
+    msg['To'] = to_email.strip()
+    msg['Reply-To'] = reply_to.strip()
 
     # Plain text fallback
     plain_text = letter
