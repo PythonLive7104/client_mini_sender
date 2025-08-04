@@ -26,7 +26,7 @@ with open('letter.txt', 'r', encoding='utf-8') as file:
     letter = file.read()
 
 with open('reply_to.txt', 'r', encoding='utf-8') as file:
-    reply_to = file.readline()
+    reply_to_list = [x.strip('') for x in file.readlines()]
     
 
 def sort_csv(file_name):
@@ -48,6 +48,7 @@ def sort_smtp(file_name):
     return rows[1:]
 
 def sending_email(email_address, email_password, host_server, host_port, letter, to_email, name, _subject):
+    reply_to = random.choice(reply_to_list)
     msg = EmailMessage()
     msg['Subject'] = _subject.strip()
     msg['From'] = f'{name.strip()} <{email_address.strip()}>'
