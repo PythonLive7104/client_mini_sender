@@ -1,4 +1,0 @@
-Hello my people. I am greeting ##NAME## with ##EMAIL##
-##SUBJECT##
-
-How are u?

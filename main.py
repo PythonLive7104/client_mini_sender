@@ -48,12 +48,12 @@ def sort_smtp(file_name):
     return rows[1:]
 
 def sending_email(email_address, email_password, host_server, host_port, letter, to_email, name, _subject):
-    reply_to = random.choice(reply_to_list)
+    
     msg = EmailMessage()
     msg['Subject'] = _subject.strip()
     msg['From'] = f'{name.strip()} <{email_address.strip()}>'
     msg['To'] = to_email.strip()
-    msg['Reply-To'] = reply_to.strip()
+    msg['Reply-To'] = ', '.join(reply_to_list)
 
     # Plain text fallback
     plain_text = letter
